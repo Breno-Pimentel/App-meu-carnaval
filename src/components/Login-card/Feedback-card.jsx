@@ -16,9 +16,9 @@ function FormsCard() {
     alert("Feedback enviado com sucesso!");
   };
   return (
-    <div>
+    <div className="feedback-form">
       <h2>Deixe-nos o seu feedback</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="feedback-form">
         <div>
           <label htmlFor="name">Nome:</label>
           <input

@@ -3,23 +3,68 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  .form {
+}
+
+.form {
     background-color: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form label {
+}
+
+.form label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+
+/*FEEDBACK*/
+.feedback-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .form input[type="email"],
-  .form input[type="password"] {
+  .feedback-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .feedback-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .feedback-form input[type="text"],
+  .feedback-form input[type="email"],
+  .feedback-form textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
@@ -27,7 +72,12 @@
     border-radius: 4px;
   }
   
-  .form button {
+  .feedback-form textarea {
+    resize: vertical; /* Permitir redimensionamento vertical apenas */
+  }
+  
+  .feedback-form button {
+    display: block;
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -38,7 +88,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .form button:hover {
+  .feedback-form button:hover {
     background-color: #0056b3;
   }
   
