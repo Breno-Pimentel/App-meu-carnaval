@@ -15,9 +15,9 @@ function Logincard() {
     } else {
       alert("Usuário ou senha estão incorretos.");
     }
-    if(password.length < 8){
-        setLoggedIn(false);
-        alert("A senha tem que ter pelo menos 8 caracteres")
+    if (password.length < 8) {
+      setLoggedIn(false);
+      alert("A senha tem que ter pelo menos 8 caracteres");
     }
   };
   return (
