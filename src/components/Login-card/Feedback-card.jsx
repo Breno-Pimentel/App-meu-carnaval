@@ -1,54 +1,77 @@
-import { useState } from "react";
-function FormsCard() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+/* eslint-disable no-unused-vars */
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aqui você pode adicionar lógica para enviar o feedback para o servidor
-    // Por exemplo, enviar os dados para um endpoint de API
-    console.log({ name, email, message });
-    // Limpar os campos após o envio do formulário
-    setName("");
-    setEmail("");
-    setMessage("");
-    alert("Feedback enviado com sucesso!");
+import React, { useState } from "react";
+
+// eslint-disable-next-line react/prop-types
+function FeedbackForm({ onSubmit }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    if (
+      formData.name &&
+      formData.email.includes("@") &&
+      formData.email.includes(".com") &&
+      formData.message
+    ) {
+      onSubmit(formData);
+      setError(""); // Limpa o erro se os campos estiverem preenchidos corretamente
+    } else {
+      setError("Please fill in all fields correctly");
+    }
+  };
+
   return (
-    <div className="feedback-form">
-      <h2>Deixe-nos o seu feedback</h2>
-      <form onSubmit={handleSubmit} className="feedback-form">
+    <div>
+      <h2>Feedback Form</h2>
+      <form onSubmit={handleSubmitForm}>
         <div>
-          <label htmlFor="name">Nome:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="email">E-mail:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="message">Mensagem:</label>
+          <label htmlFor="message">Message:</label>
           <textarea
             id="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
           />
         </div>
-        <button type="submit">Enviar Feedback</button>
+        {error && <div>{error}</div>} {/* Mostra o erro, se houver */}
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 }
 
-export default FormsCard;
+export default FeedbackForm;

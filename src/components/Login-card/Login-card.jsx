@@ -1,55 +1,61 @@
-import { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 
-function Logincard() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+// eslint-disable-next-line react/prop-types
+function LoginForm({ onSubmit }) {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
 
-  const handleLogin = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmitForm = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica de autenticação, por exemplo, enviar os dados para um servidor e verificar se são válidos
-    // Por simplicidade, vamos apenas verificar se o nome de usuário e a senha não estão vazios
-    if (username === "admin@admin.com" && password === "admin12345") {
-      setLoggedIn(true);
-      alert("Login bem-sucedido!");
+    if (formData.password.length >= 8) {
+      onSubmit(formData);
+      setError(''); // Limpa o erro se a senha estiver correta
     } else {
-      alert("Usuário ou senha estão incorretos.");
-    }
-    if (password.length < 8) {
-      setLoggedIn(false);
-      alert("A senha tem que ter pelo menos 8 caracteres");
+      setError('Password must have at least 8 characters');
     }
   };
+
   return (
-    <div className="container">
-      {loggedIn ? (
-        <p>Você está logado!</p>
-      ) : (
-        <form onSubmit={handleLogin} className="form">
-          <label>
-            Nome de usuário:
-            <input
-              type="email"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          <br />
-          <label>
-            Senha:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <br />
-          <button type="submit">Login</button>
-        </form>
-      )}
+    <div>
+      <h2>Login Form</h2>
+      <form onSubmit={handleSubmitForm}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            value={formData.email} 
+            onChange={handleChange} 
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            value={formData.password} 
+            onChange={handleChange} 
+          />
+        </div>
+        {error && <div>{error}</div>} {/* Mostra o erro, se houver */}
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }
 
-export default Logincard;
+export default LoginForm;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1714704663652" clover="3.2.0">
+  <project timestamp="1714704663653" name="All files">
+    <metrics statements="24" coveredstatements="24" conditionals="12" coveredconditionals="12" methods="8" coveredmethods="8" elements="44" coveredelements="44" complexity="0" loc="24" ncloc="24" packages="1" files="2" classes="2"/>
+    <file name="Feedback-card.jsx" path="C:\Users\Breno\Downloads\ultimotrabalho\app-meu-carnaval-final\src\components\Login-card\Feedback-card.jsx">
+      <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="4"/>
+      <line num="7" count="11" type="stmt"/>
+      <line num="12" count="11" type="stmt"/>
+      <line num="14" count="11" type="stmt"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="22" count="11" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="37" count="11" type="stmt"/>
+    </file>
+    <file name="Login-card.jsx" path="C:\Users\Breno\Downloads\ultimotrabalho\app-meu-carnaval-final\src\components\Login-card\Login-card.jsx">
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <line num="6" count="13" type="stmt"/>
+      <line num="10" count="13" type="stmt"/>
+      <line num="12" count="13" type="stmt"/>
+      <line num="13" count="6" type="stmt"/>
+      <line num="14" count="6" type="stmt"/>
+      <line num="20" count="13" type="stmt"/>
+      <line num="21" count="4" type="stmt"/>
+      <line num="22" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="24" count="2" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="30" count="13" type="stmt"/>
+    </file>
+  </project>
+</coverage>
